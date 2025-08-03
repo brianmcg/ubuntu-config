@@ -1,0 +1,138 @@
+/* ~/.config/gtk-3.0/gtk.css */
+
+.terminator-terminal-window {
+  background-color: #300A24;
+}
+
+.terminator-terminal-window stack {
+  background-color: transparent;
+}
+
+.terminator-terminal-window box box {
+  background-color: transparent;
+  padding: 0.25rem;
+}
+
+.terminator-terminal-window stack box {
+  background-color: transparent;
+}
+
+.terminator-terminal-window notebook {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+.terminator-terminal-window notebook header {
+  background-color: transparent;
+  border: none;
+}
+
+.terminator-terminal-window notebook tabs {
+  padding-top: 0.5rem;
+}
+
+.terminator-terminal-window notebook tab {
+  background-color: transparent;
+  border-radius: 0.5rem;
+  border: none;
+  padding-bottom: 0.15rem;
+  padding-top: 0.15rem;
+  transition: all 250ms ease;
+}
+
+.terminator-terminal-window notebook tab:hover {
+  background-color: rgba(255,255,255,0.05);
+  border: none;
+  box-shadow: none;
+}
+
+.terminator-terminal-window notebook tab:checked {
+  background-color: rgba(255,255,255,0.1);
+  border: none;
+  box-shadow: none;
+}
+
+.terminator-terminal-window notebook tab:checked:hover { 
+  background-color: rgba(255,255,255,0.15);
+ }
+
+.terminator-terminal-window notebook tab label {
+  color: rgb(255,255,255);
+}
+
+.terminator-terminal-window notebook tab:checked label {
+  font-weight: 500;
+}
+
+.terminator-terminal-window notebook tab button {
+  background-color: transparent;
+  background-image: none;
+  border-radius: 50%;
+  border: none;
+  color: rgb(255,255,255);
+  margin-right: 0.25rem;
+  opacity: 0;
+  transition: all 250ms ease;
+}
+
+.terminator-terminal-window notebook tab:hover button {
+  border: none;
+  opacity: 1;
+}
+
+.terminator-terminal-window notebook tab button:hover {
+  background-color: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+}
+
+.terminator-terminal-window separator {
+  background: rgba(255,255,255,0.2);
+}
+
+.terminator-terminal-window scrollbar {
+  background-color: transparent;
+  border-radius: 4rem;
+  min-width: 0.5rem;
+  transition: all 250ms ease;
+  opacity: 0;
+}
+
+.terminator-terminal-window scrollbar:hover {
+  background-color: rgba(255,255,255,0.2);
+  opacity: 1;
+}
+
+.terminator-terminal-window vte-terminal:focus + scrollbar {
+  opacity: 1;
+}
+
+.terminator-terminal-window scrollbar contents {
+  min-width: 0.5rem;
+}
+
+.terminator-terminal-window trough {
+  min-width: 0.5rem;
+}
+
+.terminator-terminal-window scrollbar slider {
+  background-color: rgba(255,255,255,0.2);
+  border-radius: 4rem;
+  border: none;
+  min-width: 0.125rem;
+  transition: all 250ms ease;
+}
+
+.terminator-terminal-window scrollbar:hover slider {
+  min-width: 0.5rem;
+}
+
+.terminator-terminal-window scrollbar slider:hover {
+  background-color: rgba(255,255,255,0.4);
+}
+
+.terminator-terminal-window scrollbar slider:active {
+  background-color: rgba(255,255,255,0.8);
+}
