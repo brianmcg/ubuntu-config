@@ -30,6 +30,8 @@
 
 .terminator-terminal-window notebook tabs {
   padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
 }
 
 .terminator-terminal-window notebook tab {
