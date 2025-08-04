@@ -31,7 +31,6 @@
 .terminator-terminal-window notebook tabs {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid rgba(255,255,255,0.2);
 }
 
 .terminator-terminal-window notebook tab {
@@ -60,10 +59,15 @@
  }
 
 .terminator-terminal-window notebook tab label {
-  color: rgb(255,255,255);
+  color: rgba(255,255,255, 0.5);
 }
 
 .terminator-terminal-window notebook tab:checked label {
+  font-weight: 500;
+}
+
+.terminator-terminal-window notebook tab:checked label {
+  color: rgb(255,255,255);
   font-weight: 500;
 }
 

@@ -2,6 +2,32 @@
 #  Function Definitions  #
 ##########################
 
+##################################################
+#  Find the name of a branch in a git repo       #
+##################################################
+find_git_branch() {
+  local branch
+  if branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null); then
+    if [[ "$branch" == "HEAD" ]]; then
+      branch='detached*'
+    fi
+    git_branch="($branch)"
+  else
+    git_branch=""
+  fi
+}
+
+##################################################
+#  Set the git_dirty symbol                      #
+##################################################
+find_git_dirty() {
+  local status=$(git status --porcelain 2> /dev/null)
+  if [[ "$status" != "" ]]; then
+    git_dirty='*'
+  else
+    git_dirty=''
+  fi
+}
 
 ##################################################
 #  Calls `git diff` and opens result in Sublime  #
@@ -9,60 +35,6 @@
 ##################################################
 git_diff_sublime () {
   git diff -w $@ > ~/Logs/Local/Git/.diff && subl ~/Logs/Local/Git/.diff
-}
-
-get_demoenv () {
-  DEMOENV_REGEX=^bm-rrd-[0-9]{5}$
-  JIRA_REGEX=^RRD-[0-9]{5}$
-  NUM_REGEX=^[0-9]{5}$
-  lowercase=$(echo "${1}" | awk '{print tolower($0)}')
-
-  if [[ "${1}" =~ ${JIRA_REGEX} ]]; then
-    echo "bm-${lowercase}"
-  elif [[ "${1}" =~ ${NUM_REGEX} ]]; then
-    echo "bm-rrd-${lowercase}"
-  elif [[ "${1}" =~ ${DEMOENV_REGEX} ]]; then
-    echo "${1}"
-  else
-    exit 0
-  fi
-}
-
-create_demoenv () {
-  DEMOENV_REGEX=^bm-rrd-[0-9]{5}$
-  ENV_NAME=$(get_demoenv ${1})
-
-  if [[ "${ENV_NAME}" =~ ${DEMOENV_REGEX} ]]; then
-    ~/Repos/gitops-eu/demoenv/helm-demoenvs/create_env.py "$(get_demoenv ${1})"
-  else
-    echo "Invalid input..."
-    exit 0
-  fi
-}
-
-open_demoenv () {
-  DEMOENV_REGEX=^bm-rrd-[0-9]{5}$
-  ENV_NAME=$(get_demoenv ${1})
-
-  if [[ "${ENV_NAME}" =~ ${DEMOENV_REGEX} ]]; then
-    google-chrome "https://accounts-${ENV_NAME}.dev.rrilabs.com"
-  else
-    echo "Invalid input..."
-    exit 0
-  fi
-}
-
-run_demoenv () {
-  DEMOENV_REGEX=^bm-rrd-[0-9]{5}$
-  ENV_NAME=$(get_demoenv ${1})
-
-  if [[ "${ENV_NAME}" =~ ${DEMOENV_REGEX} ]]; then
-    echo "Running: yarn ui:spa:demoenv ${ENV_NAME}"
-    yarn ui:spa:demoenv ${ENV_NAME}
-  else
-    echo "Invalid input..."
-    exit 0
-  fi
 }
 
 ###################################
@@ -75,6 +47,7 @@ git_diff_open () {
     subl $file
   done
 }
+
 ##########################
 #  Unzip all file types  #
 #  ${1} The file path    #
@@ -98,28 +71,4 @@ extract () {
   else
     echo "'$1' is not a valid file"
   fi
-}
-#########################################
-#  Output a string surrounded by a box  #
-#  ${1} The string to output            #
-#########################################
-echo_box() {
-  content="|  ${1}  |"
-  length=${#content}-2
-  border="+"
-  padding="|"
-
-  for ((i = 0; i < length; i++)); do
-    border="${border}-"
-    padding="${padding} "
-  done
-
-  border="${border}+"
-  padding="${padding}|"
-
-  echo "${border}"
-  echo "${padding}"
-  echo "${content}"
-  echo "${padding}"
-  echo "${border}"
 }
