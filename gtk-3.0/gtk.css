@@ -1,20 +1,8 @@
 /* ~/.config/gtk-3.0/gtk.css */
 
 .terminator-terminal-window {
-  background-color: #300A24;
-}
-
-.terminator-terminal-window stack {
-  background-color: transparent;
-}
-
-.terminator-terminal-window box box {
-  background-color: transparent;
-  padding: 0.25rem;
-}
-
-.terminator-terminal-window stack box {
-  background-color: transparent;
+  background-color: #2C001E;
+  padding: 0;
 }
 
 .terminator-terminal-window notebook {
@@ -25,37 +13,58 @@
 
 .terminator-terminal-window notebook header {
   background-color: transparent;
+  border-radius: 0;
   border: none;
+}
+
+.terminator-terminal-window notebook stack {
+  background-color: transparent;
+}
+
+.terminator-terminal-window notebook stack box {
+  background-color: transparent;
+}
+
+.terminator-terminal-window notebook box box {
+  background-color: transparent;
+  padding: 0.25rem;
 }
 
 .terminator-terminal-window notebook tabs {
-  padding-top: 0.5rem;
+  background-color: transparent;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
   padding-bottom: 0.5rem;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0.25rem;
 }
 
 .terminator-terminal-window notebook tab {
+  background-color: rgb(48,10,36);
   background-color: transparent;
   border-radius: 0.5rem;
   border: none;
-  padding-bottom: 0.15rem;
-  padding-top: 0.15rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
   transition: all 250ms ease;
 }
 
 .terminator-terminal-window notebook tab:hover {
-  background-color: rgba(255,255,255,0.05);
+  background-color: rgba(255,255,255,0.025);
   border: none;
   box-shadow: none;
 }
 
 .terminator-terminal-window notebook tab:checked {
-  background-color: rgba(255,255,255,0.1);
+  background-color: rgba(255,255,255,0.05);
   border: none;
   box-shadow: none;
 }
 
 .terminator-terminal-window notebook tab:checked:hover { 
-  background-color: rgba(255,255,255,0.15);
+  background-color: rgba(255,255,255,0.075);
  }
 
 .terminator-terminal-window notebook tab label {
@@ -102,8 +111,8 @@
   background-color: transparent;
   border-radius: 4rem;
   min-width: 0.5rem;
-  transition: all 250ms ease;
   opacity: 0;
+  transition: all 250ms ease;
 }
 
 .terminator-terminal-window scrollbar:hover {
