@@ -4,12 +4,13 @@
 [keybindings]
 [profiles]
   [[default]]
-    background_color = "#0d0f31"
+    background_color = "#300a24"
     cursor_bg_color = "#59e1e3"
     font = Ubuntu Sans Mono 18
     foreground_color = "#ffffff"
     show_titlebar = False
     use_system_font = False
+    bold_is_bright = True
   [[Tomorrow Night Eighties]]
     background_color = "#2d2d2d"
     cursor_bg_color = "#cccccc"
