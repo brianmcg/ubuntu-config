@@ -1,7 +1,10 @@
 /* ~/.config/gtk-3.0/gtk.css */
 
+@define-color terminator-main-bg-color #0d0f31;
+@define-color terminator-header-bg-color #2c2c2c;
+
 .terminator-terminal-window {
-  background-color: #300a24;
+  background-color: @terminator-main-bg-color;
   padding: 0;
 }
 
@@ -12,7 +15,7 @@
 }
 
 .terminator-terminal-window notebook header {
-  background-color: #2c2c2c;
+  background-color: @terminator-header-bg-color;
   border-radius: 0;
   border: none;
 }
@@ -21,28 +24,23 @@
   background-color: transparent;
 }
 
-.terminator-terminal-window notebook stack box {
-  background-color: transparent;
-}
-
 .terminator-terminal-window notebook box box {
   background-color: transparent;
-  padding: 0.25rem;
 }
 
 .terminator-terminal-window notebook tabs {
   background-color: transparent;
   border-radius: 0;
+  padding-bottom: 1rem;
   padding-left: 0;
   padding-right: 0;
-  padding-top: 0.25rem;
+  padding-top: 0;
 }
 
 .terminator-terminal-window notebook tab {
   background-color: rgb(48,10,36);
   background-color: transparent;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
+  border-radius: 1rem;
   border: none;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
@@ -69,10 +67,6 @@
 
 .terminator-terminal-window notebook tab label {
   color: rgba(255,255,255, 0.5);
-}
-
-.terminator-terminal-window notebook tab:checked label {
-  font-weight: 500;
 }
 
 .terminator-terminal-window notebook tab:checked label {
@@ -133,7 +127,7 @@
 }
 
 .terminator-terminal-window scrollbar slider {
-  background-color: rgba(255,255,255,0);
+  background-color: rgba(255,255,255,0.4);
   border-radius: 4rem;
   border: none;
   min-width: 0.125rem;

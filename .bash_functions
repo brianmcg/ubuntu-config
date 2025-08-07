@@ -3,29 +3,36 @@
 ##########################
 
 ##################################################
-#  Find the name of a branch in a git repo       #
+#  Set the git label for prompt                  #
 ##################################################
-find_git_branch() {
+set_git_label() {
   local branch
+  local branch_label
+  local status_label
+
+  # Get git branch label
   if branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null); then
-    if [[ "$branch" == "HEAD" ]]; then
+    if [[ "${branch}" == "HEAD" ]]; then
       branch='detached*'
     fi
-    git_branch="($branch)"
-  else
-    git_branch=""
-  fi
-}
 
-##################################################
-#  Set the git_dirty symbol                      #
-##################################################
-find_git_dirty() {
-  local status=$(git status --porcelain 2> /dev/null)
-  if [[ "$status" != "" ]]; then
-    git_dirty='*'
+    branch_label="${branch}"
   else
-    git_dirty=''
+    branch_label=""
+  fi
+
+  # Get git status label
+  if [[ "$(git status --porcelain 2> /dev/null)" != "" ]]; then
+    status_label='*'
+  else
+    status_label=''
+  fi
+
+  # Set full git label
+  if [[ $branch_label ]]; then
+    git_label=" ❖──(${branch_label}${status_label})"
+  else
+    git_label=""
   fi
 }
 
