@@ -1,60 +1,61 @@
 /* ~/.config/gtk-3.0/gtk.css */
 
+@define-color term-bg #2C2C2C;
+@define-color term-highlight #73C48F;
+@define-color term-separator #444444;
+
+@define-color term-white-100 rgb(255,255,255);
+@define-color term-white-50 rgba(255,255,255, 0.5);
+@define-color term-white-25 rgba(255,255,255,0.25);
+
 .terminator-terminal-window {
+  background-color: transparent;
   padding: 0;
 }
 
 .terminator-terminal-window notebook {
+  background-color: transparent;
   border: none;
   padding: 0;
 }
 
 .terminator-terminal-window notebook header {
-  background-color: @wm_bg;
+  background-color: @term-bg;
   border-radius: 0;
   border: none;
 }
 
 .terminator-terminal-window notebook tabs {
   border-radius: 0;
-  padding-bottom: 1rem;
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
 }
 
 .terminator-terminal-window notebook tab {
-  border-radius: 1rem;
-  border: none;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
+  background-color: transparent;
+  border-bottom: 4px solid transparent;
+  border-left: none;
+  border-radius: 0;
+  border-right: none;
+  border-top: none;
   padding-bottom: 0.5rem;
   padding-top: 0.5rem;
   transition: all 250ms ease;
 }
 
-.terminator-terminal-window notebook tab:hover {
-  background-color: rgba(255,255,255,0.025);
-  border: none;
+.terminator-terminal-window notebook tab:hover,
+.terminator-terminal-window notebook tab:checked  {
+  border-bottom: 4px solid @term-highlight;
   box-shadow: none;
 }
-
-.terminator-terminal-window notebook tab:checked {
-  background-color: rgba(255,255,255,0.05);
-  border: none;
-  box-shadow: none;
-}
-
-.terminator-terminal-window notebook tab:checked:hover { 
-  background-color: rgba(255,255,255,0.075);
- }
 
 .terminator-terminal-window notebook tab label {
-  color: rgba(255,255,255, 0.5);
+  color: @term-white-50;
 }
 
 .terminator-terminal-window notebook tab:checked label {
-  color: rgb(255,255,255);
+  color: @term-white-100;
   font-weight: 700;
 }
 
@@ -62,7 +63,7 @@
   background-image: none;
   border-radius: 50%;
   border: none;
-  color: rgb(255,255,255);
+  color: @term-white-100;
   margin-right: 0.25rem;
   opacity: 0;
   transition: all 250ms ease;
@@ -74,26 +75,28 @@
 }
 
 .terminator-terminal-window notebook tab button:hover {
-  background-color: rgba(255,255,255,0.2);
+  background-color: transparent;
   border-radius: 50%;
   border: none;
+  color: @term-highlight;
   padding: 0;
 }
 
 .terminator-terminal-window separator {
-  background-color: @theme_bg_color;
+  background-color: @term-separator;
+  background-image: none;
 }
 
 .terminator-terminal-window scrollbar {
   background-color: transparent;
-  border-radius: 4rem;
+  border-radius: 0;
   min-width: 0.5rem;
   opacity: 0;
   transition: all 250ms ease;
 }
 
 .terminator-terminal-window scrollbar:hover {
-  background-color: rgba(255,255,255,0.2);
+  background-color: @term-white-25;
   opacity: 1;
 }
 
@@ -110,17 +113,69 @@
 }
 
 .terminator-terminal-window scrollbar slider {
-  background-color: rgba(255,255,255,0.4);
-  border-radius: 4rem;
+  background-color: @term-white-25;
+  border-radius: 0;
   border: none;
-  min-width: 0.125rem;
+  min-width: 0.5rem;
   transition: all 250ms ease;
 }
 
 .terminator-terminal-window scrollbar:hover slider {
-  min-width: 0.5rem;
+  background-color: @term-white-50;
+  min-width: 0.75rem;
 }
 
 .terminator-terminal-window scrollbar slider:active {
-  background-color: rgba(255,255,255,0.6);
+  background-color: @term-white-100
+}
+
+.terminator-terminal-searchbar {
+  background-color: @term-bg;
+  padding: 1rem;
+}
+
+.terminator-terminal-searchbar label {
+  color: @term-white-50;
+}
+
+.terminator-terminal-searchbar entry {
+  background-color: transparent;
+  border-bottom: 1px solid @term-white-25;
+  border-radius: 0;
+  color: @term-white-100;
+}
+
+.terminator-terminal-searchbar entry:focus {
+  box-shadow: none;
+}
+
+.terminator-terminal-searchbar button {
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.terminator-terminal-searchbar button:hover {
+  background-color: @term-white-25;
+}
+
+.terminator-terminal-searchbar checkbutton check {
+  color: @term-highlight;
+}
+
+#terminator-search-close-button {
+  background-color: transparent;
+  transition: all 250ms ease;
+}
+
+#terminator-search-close-button:hover {
+  background-color: @term-highlight;
+}
+
+#terminator-search-close-button:active {
+  background-color: transparent;
+}
+
+#terminator-search-close-button:hover image {
+  color: @term-highlight;
 }

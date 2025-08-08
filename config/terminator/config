@@ -4,21 +4,14 @@
 [keybindings]
 [profiles]
   [[default]]
-    background_color = "#300a24"
-    cursor_bg_color = "#59e1e3"
-    font = Ubuntu Sans Mono 18
-    foreground_color = "#ffffff"
+    background_color = "#2c2c2c"
+    cursor_bg_color = "#efbf38"
+    font = Ubuntu Sans Mono 16
+    foreground_color = "#f8dcc0"
     show_titlebar = False
+    palette = "#050404:#bd0013:#4ab118:#e7741e:#0f4ac6:#665993:#70a598:#f8dcc0:#4e7cbf:#fc5f5a:#9eff6e:#efc11a:#1997c6:#9b5953:#c8faf4:#f6f5fb"
     use_system_font = False
     bold_is_bright = True
-  [[Tomorrow Night Eighties]]
-    background_color = "#2d2d2d"
-    cursor_bg_color = "#cccccc"
-    font = Ubuntu Sans Mono 18
-    foreground_color = "#cccccc"
-    show_titlebar = False
-    palette = "#000000:#f2777a:#99cc99:#ffcc66:#6699cc:#cc99cc:#66cccc:#ffffff:#000000:#f2777a:#99cc99:#ffcc66:#6699cc:#cc99cc:#66cccc:#ffffff"
-    use_system_font = False
   [[Ubuntu]]
     background_color = "#300a24"
     cursor_bg_color = "#bbbbbb"
@@ -26,14 +19,24 @@
     foreground_color = "#eeeeec"
     show_titlebar = False
     use_system_font = False
-  [[1984 Dark]]
-    background_color = "#0d0f31"
-    cursor_bg_color = "#59e1e3"
-    font = Ubuntu Sans Mono 18
-    foreground_color = "#ffffff"
+  [[Monokai Vivid]]
+    background_color = "#121212"
+    cursor_bg_color = "#fb0007"
+    font = Ubuntu Sans Mono 16
+    foreground_color = "#f9f9f9"
     show_titlebar = False
-    palette = "#000000:#ff16b0:#b3f361:#ffea16:#46bdff:#f806fa:#59e1e3:#ffffff:#555753:#ff16b0:#b3f361:#ffea16:#46bdff:#f806fa:#6be4e6:#ffffff"
+    palette = "#121212:#fa2934:#98e123:#fff30a:#0443ff:#f800f8:#01b6ed:#ffffff:#838383:#f6669d:#b1e05f:#fff26d:#0443ff:#f200f6:#51ceff:#ffffff"
     use_system_font = False
+    bold_is_bright = True
+  [[AdventureTime]]
+    background_color = "#1f1d45"
+    cursor_bg_color = "#efbf38"
+    font = Ubuntu Sans Mono 16
+    foreground_color = "#f8dcc0"
+    show_titlebar = False
+    palette = "#050404:#bd0013:#4ab118:#e7741e:#0f4ac6:#665993:#70a598:#f8dcc0:#4e7cbf:#fc5f5a:#9eff6e:#efc11a:#1997c6:#9b5953:#c8faf4:#f6f5fb"
+    use_system_font = False
+    bold_is_bright = True
 [layouts]
   [[default]]
     [[[window0]]]
