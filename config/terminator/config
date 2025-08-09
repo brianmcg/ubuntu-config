@@ -1,13 +1,15 @@
 [global_config]
+  handle_size = 1
   enabled_plugins = LaunchpadBugURLHandler, LaunchpadCodeURLHandler, APTURLHandler, TerminatorThemes
-  suppress_multiple_term_dialog = True
+  case_sensitive = False
+  invert_search = True
 [keybindings]
 [profiles]
   [[default]]
-    background_color = "#2c2c2c"
+    background_color = "#2C001E"
     cursor_bg_color = "#d0d0d0"
-    font = Ubuntu Sans Mono 18
-    foreground_color = "#d0d0d0"
+    font = 0xProto Nerd Font Propo 16
+    foreground_color = "#aea79f"
     show_titlebar = False
     palette = "#151515:#ac4142:#7e8e50:#e5b567:#6c99bb:#9f4e85:#7dd6cf:#d0d0d0:#505050:#ac4142:#7e8e50:#e5b567:#6c99bb:#9f4e85:#7dd6cf:#f5f5f5"
     use_system_font = False
@@ -50,7 +52,6 @@
   [[default]]
     [[[window0]]]
       type = Window
-      title = " "
       parent = ""
     [[[child1]]]
       type = Terminal

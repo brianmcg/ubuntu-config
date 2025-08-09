@@ -2,6 +2,14 @@
 #  Function Definitions  #
 ##########################
 
+function reload_gtk_theme() {
+  theme=$(gsettings get org.gnome.desktop.interface gtk-theme)
+  gsettings set org.gnome.desktop.interface gtk-theme ''
+  sleep 1
+  gsettings set org.gnome.desktop.interface gtk-theme $theme
+}
+
+
 ##################################################
 #  Set the git label for prompt                  #
 ##################################################
@@ -10,7 +18,6 @@ set_git_label() {
   local branch_label
   local status_label
 
-  # Get git branch label
   if branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null); then
     if [[ "${branch}" == "HEAD" ]]; then
       branch='detached*'
@@ -21,16 +28,15 @@ set_git_label() {
     branch_label=""
   fi
 
-  # Get git status label
-  if [[ "$(git status --porcelain 2> /dev/null)" != "" ]]; then
-    status_label='*'
-  else
-    status_label=''
-  fi
-
   # Set full git label
   if [[ $branch_label ]]; then
-    git_label=" ❖──(${branch_label}${status_label})"
+    if [[ "$(git status --porcelain 2> /dev/null)" != "" ]]; then
+      status_label='*'
+    else
+      status_label=''
+    fi
+
+    git_label="  ${branch_label}${status_label}"
   else
     git_label=""
   fi
