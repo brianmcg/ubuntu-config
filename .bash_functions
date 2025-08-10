@@ -2,13 +2,6 @@
 #  Function Definitions  #
 ##########################
 
-function reload_gtk_theme() {
-  theme=$(gsettings get org.gnome.desktop.interface gtk-theme)
-  gsettings set org.gnome.desktop.interface gtk-theme ''
-  sleep 1
-  gsettings set org.gnome.desktop.interface gtk-theme $theme
-}
-
 
 ##################################################
 #  Set the git label for prompt                  #
@@ -36,7 +29,7 @@ set_git_label() {
       status_label=''
     fi
 
-    git_label="  ${branch_label}${status_label}"
+    git_label="(${branch_label}${status_label})"
   else
     git_label=""
   fi
