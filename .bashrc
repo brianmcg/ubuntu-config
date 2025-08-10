@@ -62,7 +62,7 @@ if [ "$color_prompt" = yes ]; then
     . ~/.bash_colors
   fi
 
-  PS1="\[$txtgrn\]\u@\h\[$txtrst\]:\[$bldylw\]\w\[$txtred\]\$git_label\n\[$bldcyn\]\$\[$txtrst\] "
+  PS1="\[$txtgrn\]\u@\h\[$txtrst\]:\[$bldylw\]\w\[$bldpur\]\$git_label\n\[$bldcyn\]\$\[$txtrst\] "
 else
   PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
