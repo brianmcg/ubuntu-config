@@ -4,19 +4,18 @@
 [keybindings]
 [profiles]
   [[default]]
-    background_color = "#2c001e"
-    cursor_bg_color = "#ffffff"
+    background_color = "#300a24"
+    cursor_bg_color = "#aea79f"
     font = 0xProto Nerd Font Propo 16
     foreground_color = "#aea79f"
     show_titlebar = False
-    palette = "#212121:#b7141f:#457b24:#f6981e:#134eb2:#560088:#0e717c:#efefef:#424242:#e83b3f:#7aba3a:#ffea2e:#54a4f3:#aa4dbc:#26bbd1:#d9d9d9"
     use_system_font = False
     bold_is_bright = True
-  [[Ubuntinator]]
-    background_color = "#0d0f31"
+  [[Dark Ubuntu]]
+    background_color = "#2c001e"
     cursor_bg_color = "#feffff"
     font = 0xProto Nerd Font Propo 14
-    foreground_color = "#feffff"
+    foreground_color = "#aea79f"
     show_titlebar = False
     palette = "#040404:#d84a33:#5da602:#eebb6e:#417ab3:#e5c499:#bdcfe5:#dbded8:#685656:#d76b42:#99b52c:#ffb670:#97d7ef:#aa7900:#bdcfe5:#e4d5c7"
     use_system_font = False
@@ -26,7 +25,6 @@
     [[[window0]]]
       type = Window
       parent = ""
-      title = " "
     [[[child1]]]
       type = Terminal
       parent = window0
