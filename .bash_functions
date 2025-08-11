@@ -29,7 +29,7 @@ set_git_label() {
       status_label=''
     fi
 
-    git_label="(${branch_label}${status_label})"
+    git_label="  ${branch_label}${status_label} "
   else
     git_label=""
   fi
