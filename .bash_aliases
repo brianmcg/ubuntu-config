@@ -2,6 +2,7 @@
 #  Alias definitions  #
 #######################
 
+
 ###########################################################
 #  Enable color support of ls and also add handy aliases  #
 ###########################################################
@@ -63,3 +64,5 @@ alias de='get_demoenv'
 alias cde='create_demoenv'
 alias ode='open_demoenv'
 alias rde='run_demoenv'
+
+alias explorer='nautilus'

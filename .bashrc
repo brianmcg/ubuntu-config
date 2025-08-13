@@ -19,6 +19,8 @@ shopt -s histappend
 HISTSIZE=1000
 HISTFILESIZE=2000
 
+posh_git=no
+
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
@@ -56,13 +58,23 @@ if [ -n "$force_color_prompt" ]; then
   fi
 fi
 
+# Function definitions.
+if [ -f ~/.bash_functions ]; then
+  . ~/.bash_functions
+fi
+
 if [ "$color_prompt" = yes ]; then    
   # Color definitions.
   if [ -f ~/.bash_colors ]; then
     . ~/.bash_colors
   fi
 
-  PS1="\[$txtgrn\]\u@\h\[$bldwht\]:\[$bldylw\]\w \[$txtblk\]\[$bakylw\]\$git_label\[$txtrst\]\n\[$bldwht\]\$\[$txtrst\] "
+  if [ "$posh_git" = yes ]; then
+    PS1=$(show_posh_git)
+  else
+    PS1=$(show_git)
+  fi
+
 else
   PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -107,10 +119,7 @@ if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
 fi
 
-# Function definitions.
-if [ -f ~/.bash_functions ]; then
-  . ~/.bash_functions
-fi
+
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile

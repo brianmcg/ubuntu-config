@@ -2,39 +2,6 @@
 #  Function Definitions  #
 ##########################
 
-
-##################################################
-#  Set the git label for prompt                  #
-##################################################
-set_git_label() {
-  local branch
-  local branch_label
-  local status_label
-
-  if branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null); then
-    if [[ "${branch}" == "HEAD" ]]; then
-      branch='detached*'
-    fi
-
-    branch_label="${branch}"
-  else
-    branch_label=""
-  fi
-
-  # Set full git label
-  if [[ $branch_label ]]; then
-    if [[ "$(git status --porcelain 2> /dev/null)" != "" ]]; then
-      status_label='*'
-    else
-      status_label=''
-    fi
-
-    git_label="  ${branch_label}${status_label} "
-  else
-    git_label=""
-  fi
-}
-
 ##################################################
 #  Calls `git diff` and opens result in Sublime  #
 #  ${@} The Git arguments                        #
@@ -76,5 +43,65 @@ extract () {
     esac
   else
     echo "'$1' is not a valid file"
+  fi
+}
+
+show_git() {
+  echo "\[$txtgrn\]\u@\h\[$bldwht\]:\[$bldylw\]\w \[$txtylw\]\$git_label\n\[$bldwht\]\$\[$txtrst\] "
+}
+
+show_posh_git() {
+  echo "\n\
+\[$txtblk\]\[$bakgrn\] 󱡶 \u \[$txtrst\]\[$txtgrn\]\
+\[$txtylw\]\[$txtblk\]\[$bakylw\]  \w \[$txtrst\]\[$txtylw\]\
+\[$txtpur\]\[$txtwht\]\[$bakpur\]\$git_label\[$txtrst\]\[$txtpur\]\
+\n\[$bldwht\]>\[$txtrst\] "
+}
+
+# 󰍹 󱩛 󱡶                
+# 󰍹 󱩛 󱡶                
+# posh_git() {
+#   echo "\
+# \[$txtgrn\]\u@\h\[$bldwht\]:\
+# \[$bldylw\]\w \
+# \[$txtylw\]\[$txtblk\]\[$bakylw\]\$git_label\[$txtylw\]\n\
+# \[$bldwht\]\$\[$txtrst\] "
+# }
+
+
+
+##################################################
+#  Set the git label for prompt                  #
+##################################################
+set_git_label() {
+  local branch
+  local branch_label
+  local status_label
+
+  if branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null); then
+    if [[ "${branch}" == "HEAD" ]]; then
+      branch='detached*'
+    fi
+
+    branch_label="${branch}"
+  else
+    branch_label=""
+  fi
+
+  # Set full git label
+  if [[ $branch_label ]]; then
+    if [[ "$(git status --porcelain 2> /dev/null)" != "" ]]; then
+      status_label='*'
+    else
+      status_label=''
+    fi
+
+    if [ "$posh_git" = yes ]; then
+      git_label="  ${branch_label}${status_label} "
+    else
+      git_label="(${branch_label}${status_label})"
+    fi
+  else
+    git_label=""
   fi
 }

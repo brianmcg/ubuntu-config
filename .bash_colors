@@ -29,14 +29,14 @@ bldwht='\e[1;37m'
 # undwht='\e[4;37m'
 
 # Background
-# bakblk='\e[40m'
-# bakred='\e[41m'
-# bakgrn='\e[42m'
-# bakylw='\e[43m'
-# bakblu='\e[44m'
-# bakpur='\e[45m'
-# bakcyn='\e[46m'
-# bakwht='\e[47m'
+bakblk='\e[40m'
+bakred='\e[41m'
+bakgrn='\e[42m'
+bakylw='\e[43m'
+bakblu='\e[44m'
+bakpur='\e[45m'
+bakcyn='\e[46m'
+bakwht='\e[47m'
 
 # Reset
 txtrst='\e[0m'
