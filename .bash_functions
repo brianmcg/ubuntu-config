@@ -46,28 +46,6 @@ extract () {
   fi
 }
 
-show_git() {
-  echo "\[$txtgrn\]\u@\h\[$bldwht\]:\[$bldylw\]\w \[$txtylw\]\$git_label\n\[$bldwht\]\$\[$txtrst\] "
-}
-
-show_posh_git() {
-  echo "\n\
-\[$txtblk\]\[$bakgrn\] 󱡶 \u \[$txtrst\]\[$txtgrn\]\
-\[$txtylw\]\[$txtblk\]\[$bakylw\]  \w \[$txtrst\]\[$txtylw\]\
-\[$txtpur\]\[$txtwht\]\[$bakpur\]\$git_label\[$txtrst\]\[$txtpur\]\
-\n\[$bldwht\]>\[$txtrst\] "
-}
-
-# 󰍹 󱩛 󱡶                
-# 󰍹 󱩛 󱡶                
-# posh_git() {
-#   echo "\
-# \[$txtgrn\]\u@\h\[$bldwht\]:\
-# \[$bldylw\]\w \
-# \[$txtylw\]\[$txtblk\]\[$bakylw\]\$git_label\[$txtylw\]\n\
-# \[$bldwht\]\$\[$txtrst\] "
-# }
-
 ##################################################
 #  Set the git label for prompt                  #
 ##################################################
@@ -102,4 +80,22 @@ set_git_label() {
   else
     git_label=""
   fi
+}
+
+##################################################
+#  Execute `git pull` in all repos               #
+##################################################
+pull_all() {
+  local repo_dir="${HOME}/Repos"
+  local current_dir=$(pwd)
+
+  for dir in $(ls "${repo_dir}"); do
+    cd "${repo_dir}/${dir}"
+    echo -e "\e[32m${repo_dir}/${dir}\e[0m"
+    echo ""
+    git pull
+    echo ""
+  done
+
+  cd "${current_dir}"
 }

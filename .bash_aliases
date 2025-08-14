@@ -2,7 +2,6 @@
 #  Alias definitions  #
 #######################
 
-
 ###########################################################
 #  Enable color support of ls and also add handy aliases  #
 ###########################################################
@@ -20,7 +19,6 @@ alias ll='ls -alF'
 alias la='ls -a'
 alias l='ls -CF'
 
-
 #################
 #  Git aliases  #
 #################
@@ -37,32 +35,23 @@ alias gsc='git stash && git stash clear'
 alias gpo='git push origin'
 alias gla='git shortlog -s -n --all'
 
-
-#####################
-#  Program aliases  #
-#####################
-alias pgen="openssl rand -base64 20"
-alias vim="vi"
-
 ####################
 #  Custom aliases  #
 ####################
-alias cc='color_convert'
-alias la="ls -A"
-alias lh="ls -lh"
-alias ll="ls -l"
-alias ls="ls -I 'NTUSER*' -I 'ntuser*' -F --color=always"
+alias pgen="openssl rand -base64 20"
+alias vim="vi"
 alias mkdird='mkdir $(date '+%d-%b-%Y')'
 alias mkdirp='mkdir -p'
-alias pa='pull_all'
-alias rmesc='remove_escape_characters'
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+alias explorer='nautilus'
 
 ######################
 #  Function aliases  #
 ######################
+alias rmesc='remove_escape_characters'
+alias pa='pull_all'
 alias de='get_demoenv'
 alias cde='create_demoenv'
 alias ode='open_demoenv'
 alias rde='run_demoenv'
-
-alias explorer='nautilus'
+alias cc='color_convert'
